@@ -14,6 +14,18 @@ video{
     transform: translateX(-50%) translateY(-50%);
     z-index: -10;
 }
+    button{
+    position: fixed;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -10;
+}
 
 </style>
 
@@ -22,12 +34,40 @@ video{
 <html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        alert("Please Unmute Video")
+        alert("Click Anywhere To Play/Pause")
     </script>
+
+
+
+
 <body>
-    <video controls="hidden">
-<source src="recources\videos\bk-talk.mp4" type="video/mp4">
-Your browser doesnt support playback of this video.
-    </video>
+
+<div class="video-player">
+
+
+<video src="recources\videos\bk-talk.mp4" class="video"></video>
+<div class="player-controls">
+
+    <button class="play-button" title="Play" style="opacity: 0;">Play</button>
+
+</div>
+
+</div>
+<script>
+    const videoPlayer = document.querySelector('.video-player')
+    const video = videoPlayer.querySelector('.video')
+    const playButton = videoPlayer.querySelector('.play-button')
+    
+    playButton.addEventListener('click', (e) => {
+        if(video.paused){
+            video.play()
+            e.target.textContent = 'Pause'
+        } else {
+            video.pause()
+            e.target.textContent = 'Play'
+        
+        }
+    })
+    </script>
 </body>
 </html>
