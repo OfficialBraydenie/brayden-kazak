@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <script>
-    if (window.innerWidth < 1290) {
+    function IsSafari() {
+
+var is_safari = navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
+return is_safari;
+}
+if (IsSafari=true) {
     window.location = "bk-talk-mobile.html";
 }
 </script>
