@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<script>
+    if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) 
+{
+    alert("Your on safari, you saved yourself");
+    window.location = "asdughaksjhdgk.html";       
+}
+
+</script>
+<style>
+
+video{
+    position: fixed;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -10;
+}
+    button{
+    position: fixed;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -10;
+}
+
+</style>
+
+
+
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<body>
+
+<div class="video-player">
+
+
+<video src="recources\videos\r-roll.mp4" class="video" poster="recources\images\fake-cookie.png" loop></video>
+<div class="player-controls">
+
+    <button class="play-button" title="Play" style="opacity: 0;">Play</button>
+
+</div>
+
+</div>
+<script>
+    const videoPlayer = document.querySelector('.video-player')
+    const video = videoPlayer.querySelector('.video')
+    const playButton = videoPlayer.querySelector('.play-button')
+    
+    playButton.addEventListener('click', (e) => {
+        if(video.paused){
+            video.play()
+            e.target.textContent = 'Pause'
+        } else {
+            e.target.textContent = 'Pause'
+        
+        }
+    })
+    </script>
+</body>
+</html>
