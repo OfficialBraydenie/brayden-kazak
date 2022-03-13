@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <script>
-    function IsSafari() {
-
-var is_safari = navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
-return is_safari;
+    if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) 
+{
+   alert("Browser is Safari");          
 }
-if (IsSafari=true) {
-    window.location = "bk-talk-mobile.html";
-}
+// if (IsSafari=true) {
+//    window.location = "bk-talk-mobile.html";
+// }
 </script>
 <style>
 
