@@ -1,89 +1,82 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <style>
-        @font-face {font-family: mohave; src: url('recources/fonts/Mohave.ttf');}
-        body{
-        background-image: url("recources/images/background.jpg");
-        background-size: fill;
-        background-repeat: no-repeat;
-        background-position: top;
-        background-color: rgb(0, 71, 119);
-
-    }
-        h1{
-            color: rgb(255, 255, 255);
-            text-align: left;
-            font-size: 25px;
-            padding-left: 10px;
-            font-family: mohave;
-        }
-        a.button:link, a.button:visited{
-            border: 2px solid rgb(255, 255, 255);
-            color: white;
-            text-align: center;
-            padding: 10px 20px;
-            display: inline-block;
-            text-decoration: none;
-        }
-        a.button:hover, a.button:active{
-            color: white;
-            background-color: coral;
-            text-decoration: none;
-        }
-        .container{
-            position: absolute; top: 0; right: 0; bottom: 0; left: 0;
-            width: 100%; height: 100%;
-        }
-        p.button{  
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            top: 35%;
-            transform: translateX(-50%) translateY(-50%); 
-            font-size: 100px;
-            font-family: mohave;
-        }
-        img.image{
-            width: 50px;
-            height: 50px;
-        }
-        p.image{
-            position: absolute;
-            bottom: 5px;
-            right: 20px;
-        }
-        a.image{
-            text-decoration: none;
-        }
-    </style>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Brayden Kazak</title>
-        <link rel="icon" type="image/png" href="recources/images/Favicon.png">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brayden Kazak</title>
+</head>
+<style>
+    @font-face {font-family: mohave; src: url('recources/fonts/Mohave.ttf');}
+html{
+    background-image: linear-gradient(rgb(103, 169, 255), rgb(115, 255, 201));
+    height: 100%;
+    height: 3000px;
+}
+#box1{
     
-    <body>
-        
-        
-        <h1>Brayden Kazak</h1>
+    background-image: url("recources/images/leaves.png");
+    background-position: center;
+    height: 600px;
+    margin: -8px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.623);
+}
+#box1-text{
+    font-size: 100px;
+    text-align: center;
+    color: white;
+    font-family: mohave;
+    position: relative;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    
+}
+#nav-bar{
+    overflow: hidden;
+    background-color: rgb(87, 87, 87);
+    margin: -8px;
+    height: 58px;
+}
+#nav-bar-a{
+    float: right;
+    display: block;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: mohave;
+}
+#nav-bar-b{
+    float: left;
+    display: block;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding-left: 10px;
+    padding-top: 5px;
+    text-decoration: none;
+}
+#nav-bar-a:hover{
+    background-color: rgba(255, 135, 23, 0.555);
+    color: black;
+}
+</style>
+<body></body>
+<div id="nav-bar">
+    <a href="#" id="nav-bar-a">Search</a>
+    <a href="#" id="nav-bar-a">About</a>
+    <a href="#" id="nav-bar-a">Contact</a>
+    <a href="index.html" id="nav-bar-b"><img src="recources/images/Favicon.png" style="width: 40px;height: 40px;"></a>
+</div>
+<div id="bg"></div>
 
-        <div class="container">
-        <p class="button">
-            <a class="button" href="contact.html">Contact</a>
-        </p>
-        
-        </div>
-
-        <p class="image">
-        <a class="image" href="mailto: bubby1914@gmail.com">
-            <img class="image" src="recources/images/mail.png" alt="Mail" style="size: 10px;">
-        </a>
-        &nbsp; &nbsp;
-        <a class="image" href="mailto: bubby1914@gmail.com">
-            <img class="image" src="recources/images/phone.png" alt="Phone">
-        </a>
-        </p>
-    </body>
-
+<div id="box1">
+    <div id="box1-text">
+        Brayden Kazak
+    </div>
+</div>
+</body>
 </html>
