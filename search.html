@@ -22,7 +22,7 @@
         padding: 0;
         color: white;
         font-size: 16px;
-        transition: 0.4s;
+        transition: 0.8s;
         line-height: 50px;
         width: 0px;
         
@@ -62,7 +62,7 @@
 <body>
 
 <div id="bar-design">
-    <input type="text" placeholder="Type To Search" value="" id="search"  onchange="openPage()">
+    <input type="search" placeholder="Type To Search" value="" id="search"  onchange="openPage()">
     <a id="search-btn" href="#">
         <i class="fa-solid fa-magnifying-glass fa-beat" style="--fa-animation-duration: 2s;"></i>
     </a>
@@ -70,11 +70,22 @@
 
 
     <script>
+        
+
+
         function openPage(){
             var x = document.getElementById("search").value;
 
-            if (x === "home", "Home", "HOME", "hOME"){
-                window.open("/index.html")
+            const value = x.toLowerCase().trim();
+
+            if (value === 'home' || value === 'index'){
+                window.open("/index.html","_self");
+            }
+            else if (value === 'contact'){
+                window.open("/contact.html","_self")
+            }
+            else{
+                alert("Possible Searches:\nHome\nContact");
             }
         }
     </script>
