@@ -1,0 +1,347 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--        Hello to whoever is reading this :)      -->
+
+<!--        While reading this code i have broken down what the code does in comments that look like this      -->
+<!--        Look for green text in brackets like these       -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/png" href="/school/foodtruck/images/favicon.png">
+
+    <!-- My CSS/Style Sheet -->
+
+    <style>
+        @font-face {font-family: poppins-medium; src: url('/school/foodtruck/font/Poppins-Medium.ttf');}
+        html{
+            font-family: poppins-medium;
+            background-color: #191919;
+            color: #dddddd;
+        }
+        
+        #splash{
+            z-index: 3;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 1;
+            animation: scaleup 1s;
+            transition: all 2s;
+            overflow: hidden;
+        }
+        #splash-bg{
+            z-index: 4;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            transition: all 0.5s;
+            overflow: hidden;
+        }
+        ul {
+            z-index: 3;
+            position: fixed;
+            list-style-type: none;
+            margin: -8px;
+            padding: 0px;
+            width: 150px;
+            background-color: #191919;
+            height: 100%;
+            transform: translateX(-100%);
+            transition: all 1s;
+            border-right: 5px #dddddd outset;
+        }
+        li a {
+            display: block;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: x-large;
+        }
+        li a.active {
+            background-color: #009aad;
+            color: black;
+        }
+        li a:hover:not(.active) {
+            background-color: #dddddd;
+            color: black;
+        }
+        #click-listener{
+            z-index: 2;
+            display: none;
+            position:fixed;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            width: 100%;
+            height: 100%;
+        }
+        .menu:hover{
+            font-size: 50px;
+        }
+        .menu{
+            z-index: 1;
+            font-size: 40px;
+            position: absolute;
+            transition: all 1s;
+        }
+        .heading{
+            text-align: center;
+            padding-top: 30px;
+            font-size: 8vmin;
+        }
+        .page-wrapper{
+            align-items: center;
+        }
+        .content-wrapper-1{
+            display: flex;
+            justify-content: space-around;
+            padding: 40px;
+        }
+        .content{
+            text-align: center;
+        }
+        .social-media-img{
+            width: 5em;
+            filter: invert();
+        }
+        .content-txt-h{
+            font-size: 2em;
+            color: white;
+            text-align: center;
+            margin-top: -8px;
+            margin-bottom: 15px;
+        }
+        .content-txt-p{
+            text-align: center;
+            text-decoration: underline;
+            color: #dddddd;
+        }
+        .content-txt-u{
+            margin-top: -35px;
+            font-size: 3em;
+            pointer-events: none;
+        }
+
+        .contact-form-wrapper{
+            padding-left: 8%;
+            display: flex;
+            justify-content: center;
+        }
+        .contact-heading{
+            font-size: 3.5em;
+        }
+        .name{
+            font-size: larger;
+            font-family: poppins-medium;
+            color: #dddddd;
+            padding-bottom: 8px;
+            padding-top: 8px;
+            background: none;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid white;
+            width: 350px;
+        }
+        .email{
+            font-size: larger;
+            font-family: poppins-medium;
+            color: #dddddd;
+            padding-bottom: 8px;
+            padding-top: 16px;
+            background: none;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid white;
+            width: 350px;
+        }
+        .message{
+            font-size: larger;
+            font-family: poppins-medium;
+            color: #dddddd;
+            padding-bottom: 8px;
+            padding-top: 16px;
+            background: none;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid white;
+            width: 350px;
+            resize: none;
+        }
+        .send{
+            background: none;
+            border: 2px solid #dddddd;
+            color: #dddddd;
+            padding: 15px;
+            font-family: poppins-medium;
+            margin-top: 15px;
+            font-size: large;
+        }
+        .send:hover{
+            background: #dddddd;
+            color: #191919;
+            font-family: poppins-medium;
+            transition: all 0.25s ease-in;
+        }
+        .hours{
+            width: 600px;
+            border: 5px solid #dddddd;
+            border-radius: 25px;
+            padding: 20px;
+            margin-right: 180px;
+            margin-left: -10%;
+        }
+        h{
+            font-size: xxx-large;
+        }
+        p{
+            margin-top: -2px;
+            font-size: x-large;
+            line-height: 60px;
+        }
+        @keyframes fadein {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @media (max-width: 1300px) {
+        }
+        @media (max-width: 900px) {
+            ul {
+                width: 100%;
+                transform: translateX(-100%);
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body id="html">
+
+<!-- Navigation System -->
+    <ul id="nav-bar">
+        <li><a href="/school/foodtruck/index.html">Home</a></li>
+        <li><a href="/school/foodtruck/menu.html">Menu</a></li>
+        <li><a class="active" id="active" href="#">Find Us</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+
+    <div id="click-listener"></div>
+    <div class="menu" id="menu">☰</div>
+    <script>
+        document.getElementById("menu").addEventListener("click", functionStupid);
+            function functionStupid(){
+                document.getElementById("nav-bar").style.transform = 'translateX(0%)';
+                document.getElementById("click-listener").style.display = 'flex';
+            };
+        document.getElementById("active").addEventListener("click", functionDum);
+        document.getElementById("click-listener").addEventListener("click", functionDum);
+            function functionDum(){
+                document.getElementById("nav-bar").style.transform = 'translateX(-100%)';
+                document.getElementById("click-listener").style.display = 'none';
+            };
+        </script>
+
+<!-- Page Code -->
+<div class="page-wrapper">
+<div class="content-wrapper-1">
+<div class="content"></div>
+<div class="content"><img class="social-media-img" src="/school/foodtruck/images/truck-512.png"><p class="content-txt-h">Usual Location:</p><a href="#" class="content-txt-p">Edgewater Park, Cleveland, OH 44102</a><p class="content-txt-u">_</p></div>
+<div class="content"><img class="social-media-img" src="/school/foodtruck/images/twitter-512.png"><p class="content-txt-h">Twitter</p><a href="#" class="content-txt-p">https://twitter.com/CuisineMachine</a><p class="content-txt-u">_</p></div>
+<div class="content"><img class="social-media-img" src="/school/foodtruck/images/facebook-512.png"><p class="content-txt-h">Facebook</p><a href="#" class="content-txt-p">https://www.facebook.com/Cuisine-Machine/</a><p class="content-txt-u">_</p></div>
+<div class="content"><img class="social-media-img" src="/school/foodtruck/images/instagram-512.png"><p class="content-txt-h">Instagram</p><a href="#" class="content-txt-p">https://www.instagram.com/CuisineMachine/</a><p class="content-txt-u">_</p></div>
+<div class="content"></div>
+</div>
+</div>
+
+<div class="contact-form-wrapper">
+    <div class="hours"><h>Business Hours:</h><br><br><p>Monday: 9AM-8PM<br>Tuesday: 9AM-8PM<br>Wednesday: 9AM-8PM<br>Thursday: 9AM-8PM<br>Friday: 9AM-8PM<br>Saturday: 12PM-8PM<br>Sunday: 12PM-8PM</p></div>
+<div class="contact-content-wrapper">
+<div class="contact-heading">Have a question?<br>Contact us!</div>
+<input class="name" id="name" placeholder="Enter your name"><br>
+<input class="email" id="email" placeholder="Enter your email"><br>
+<textarea class="message" id="message" placeholder="Enter your message" rows="4"></textarea><br>
+<button class="send" id="send">SEND MESSAGE</button>
+</div>
+
+
+
+
+</div>
+</body>
+<script>
+            document.getElementById("send").addEventListener("click", sendMessage)
+            function sendMessage(){
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+            alert("Thank you for your message '" + name + "'!\nWe have sent the following message to our staff:\n\n'" + message + "'\n\nWe will send a message back to '" + email + "' as soon as we can!" )
+            }
+</script>
+
+
+<!--<p class="p-content-txt">Edgewater Park, Cleveland, OH 44102</p>-->
+</html>

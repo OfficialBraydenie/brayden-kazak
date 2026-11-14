@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://kit.fontawesome.com/5a597da6ce.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="/orbstar/orbstar-recources/favicon.png">
+    <style>
+        @font-face {font-family: neuropol; src: url('/orbstar/orbstar-recources/neuropol_0.ttf');}
+    html{
+    background-color: rgb(33,0,17);
+    height: 100%;
+    height: 100%;
+}   
+    #box1{
+    
+    background-image: url("/orbstar/orbstar-recources/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 900px;
+    margin: -8px;
+}
+#box1-text{
+    font-size: 100px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: neuropol;
+    position: relative;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    
+}
+#nav-bar{
+    position: fixed;
+    overflow: hidden;
+    background-color: rgb(0,15,48);
+    margin: -8px;
+    padding-top: 8px;
+    width: 100%;
+    box-shadow: 0px 0px 10px;
+    height: 50px;
+    z-index: 1;
+}
+#nav-bar-a{
+    float: right;
+    display: block;
+    color: rgb(246,252,252);
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-family: neuropol;
+    height: 50px;
+}
+#nav-bar-b{
+    float: left;
+    display: block;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 10px;
+    text-decoration: none;
+}
+#nav-bar-a:hover{
+    background-color: rgb(131,146,179);
+    color: rgb(0,15,48);
+}
+#text{
+    color: white;
+    height: 1000px;
+}
+    </style>
+</head>
+<body>
+    <div id="nav-bar">
+        <a href="/orbstar/search.html" id="nav-bar-a"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" id="nav-bar-a">Posts</a>
+        <a href="#" id="nav-bar-a">Empires</a>
+        <a href="#" id="nav-bar-a">OSL</a>
+        <a href="#" id="nav-bar-a">Metereaders</a>
+        <a href="#" id="nav-bar-a">About</a>
+        <a href="#" id="nav-bar-a">Merch</a>
+        <a href="#" id="nav-bar-b"><img src="/orbstar/orbstar-recources/favicon.png" style="width: 40px;height: 40px;"></a>
+    </div>
+    <div id="bg"></div>
+    
+    <div id="box1">
+        <div id="box1-text">
+            OrbStar
+        </div>
+    </div>
+    <div id="text">
+    </div>
+</body>
+</html>

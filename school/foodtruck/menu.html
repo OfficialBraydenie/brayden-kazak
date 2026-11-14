@@ -1,0 +1,257 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--        Hello to whoever is reading this :)      -->
+
+<!--        While reading this code i have broken down what the code does in comments that look like this      -->
+<!--        Look for green text in brackets like these       -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/png" href="/school/foodtruck/images/favicon.png">
+
+    <!-- My CSS/Style Sheet -->
+
+    <style>
+        @font-face {font-family: poppins-medium; src: url('/school/foodtruck/font/Poppins-Medium.ttf');}
+        html{
+            font-family: poppins-medium;
+            background-color: #191919;
+            color: #dddddd;
+        }
+        
+        #splash{
+            z-index: 3;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 1;
+            animation: scaleup 1s;
+            transition: all 2s;
+            overflow: hidden;
+        }
+        #splash-bg{
+            z-index: 4;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            transition: all 0.5s;
+            overflow: hidden;
+        }
+        ul {
+            z-index: 3;
+            position: fixed;
+            list-style-type: none;
+            margin: -8px;
+            padding: 0px;
+            width: 150px;
+            background-color: #191919;
+            height: 100%;
+            transform: translateX(-100%);
+            transition: all 1s;
+            border-right: 5px #dddddd outset;
+        }
+        li a {
+            display: block;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: x-large;
+        }
+        li a.active {
+            background-color: #009aad;
+            color: black;
+        }
+        li a:hover:not(.active) {
+            background-color: #dddddd;
+            color: black;
+        }
+        #click-listener{
+            z-index: 2;
+            display: none;
+            position:fixed;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            width: 100%;
+            height: 100%;
+        }
+        .menu:hover{
+            font-size: 50px;
+        }
+        .menu{
+            z-index: 1;
+            font-size: 40px;
+            position: fixed;
+            transition: all 1s;
+        }
+        .heading{
+            text-align: center;
+            padding-top: 30px;
+            font-size: 8vmin;
+        }
+        .sub-heading{
+            text-align: center;
+            padding-top: 30px;
+            font-size: 4vmin;
+            padding-bottom: 20px;
+        }
+        .menu-wrapper{
+            align-items: center;
+            animation: fadein 3s forwards;
+        }
+        .container-1{
+            display: flex;
+            justify-content: space-around;
+            padding: 40px;
+        }
+        .container-2{
+            display: flex;
+            justify-content: space-around;
+            padding: 40px;
+        }
+        .menu-img{
+            width: 30em;
+            border-radius: 2em;
+            transition: all 1s;
+        }
+        .menu-img:hover + .item-txt{
+            text-decoration: underline;
+        }
+        .menu-img:hover{
+            transform: scale(1.04);
+        }
+        .item-txt{
+            text-align: center;
+            font-size: x-large;
+        }
+        @keyframes fadein {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @media (max-width: 1300px) {
+
+        }
+        @media (max-width: 900px) {
+            ul {
+                width: 100%;
+                transform: translateX(-100%);
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body id="html">
+
+<!-- Navigation System -->
+
+
+    <ul id="nav-bar">
+        <li><a href="/school/foodtruck/index.html">Home</a></li>
+        <li><a class="active" id="active" href="#">Menu</a></li>
+        <li><a href="/school/foodtruck/contact.html">Find Us</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+
+    <div id="click-listener"></div>
+    <div class="menu" id="menu">☰</div>
+    <script>
+        document.getElementById("menu").addEventListener("click", functionStupid);
+            function functionStupid(){
+                document.getElementById("nav-bar").style.transform = 'translateX(0%)';
+                document.getElementById("click-listener").style.display = 'flex';
+            };
+        document.getElementById("active").addEventListener("click", functionDum);
+        document.getElementById("click-listener").addEventListener("click", functionDum);
+            function functionDum(){
+                document.getElementById("nav-bar").style.transform = 'translateX(-100%)';
+                document.getElementById("click-listener").style.display = 'none';
+            };
+        </script>
+
+<!-- Page Code -->
+    <div class="heading">Menu</div>
+    
+<div class="menu-wrapper">
+    <div class="sub-heading">Main Items:</div>
+    <div class="container-1">
+        <div class="img-wrapper"><img class="menu-img" src="/school/foodtruck/images/burrito-menu.png"><p class="item-txt">Burrito</p></div>
+        <div class="img-wrapper"><img class="menu-img" src="/school/foodtruck/images/burrito-bowl-menu.png"><p class="item-txt">Burrito Bowl</p></div>
+    </div>
+    <div class="sub-heading">Sides:</div>
+    <div class="container-2">
+        <div class="img-wrapper"><img class="menu-img" src="/school/foodtruck/images/guac-menu.png"><p class="item-txt">Chips & Guacamole</p></div>
+        <div class="img-wrapper"><img class="menu-img" src="/school/foodtruck/images/salsa-menu1.png"><p class="item-txt">Chips & Salsa</p></div>
+        <div class="img-wrapper"><img class="menu-img" src="/school/foodtruck/images/queso-menu.png"><p class="item-txt">Chips & Queso</p></div>
+    </div>
+</div>
+</body>
+
+
+
+</html>

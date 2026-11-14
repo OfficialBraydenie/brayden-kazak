@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Catchphrase</title>
+    <style>
+        @font-face {font-family: Good-Times; src: url('recources/fonts/GoodTimes.ttf');}
+        html{
+            background: #ececec;
+            font-family: Good-Times;
+        }
+        #reload{
+            text-decoration: none;
+            height: 30px;
+            padding: 10px;
+        }
+        #question{
+            text-decoration: none;
+            height: 30px;
+            padding: 10px;
+            float: right;
+        }
+        #start{
+            border: 5px solid #606c38;
+            width: 70%;
+            text-decoration: none;
+            word-wrap: break-word;
+            font-size: 25px;
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translateX(-50%) translateY(-50%);
+            border-radius: 50px;
+            color: black;
+        }
+        #word{
+            display: none;
+            border: 5px solid #606c38;
+            width: 70%;
+            text-decoration: none;
+            word-wrap: break-word;
+            font-size: 25px;
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translateX(-50%) translateY(-50%);
+            border-radius: 50px;
+        }
+
+        #points-div1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 30px;
+            position: absolute;
+            left: 30%;
+            top: 10%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 30px;
+            padding: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+            border: 5px solid #0090d2;
+            border-radius: 50px;
+        }
+        #points-div2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 30px;
+            position: absolute;
+            left: 70%;
+            top: 10%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 30px;
+            padding: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+            border: 5px solid #d71f16;
+            border-radius: 50px;
+        }
+        #pointleft{
+            padding: 10px;
+            padding-right: 15px;
+            text-decoration: none;
+        }
+        #pointright{
+            padding: 10px;
+            padding-right: 15px;
+            text-decoration: none;
+        }
+        #next{
+            position: absolute;
+            left: 50%;
+            top: 80%;
+            transform: translateX(-50%) translateY(-50%);
+            color: #01BAEF;
+            text-decoration: none;
+            text-align: center;
+            border: 5px solid black;
+            padding: 20px;
+            font-size: 25px;
+            border-radius: 50px;
+            display: none;
+        }
+        #plus1{
+            display: flex;
+            float: right;
+            position: absolute;
+            right: 10%;
+            top: 15%;
+            font-size: 40px;
+        }
+        #plus2{
+            display: flex;
+            float: right;
+            position: absolute;
+            right: 10%;
+            top: 15%;
+            font-size: 40px;
+        }
+        #minus1{
+            display: flex;
+            float: right;
+            position: absolute;
+            left: 13%;
+            top: 15%;
+            font-size: 40px;
+        }
+        #minus2{
+            display: flex;
+            float: right;
+            position: absolute;
+            left: 13%;
+            top: 15%;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="overlay"></div>
+    <a href="javascript:location.reload(true)"><img src="/recources/images/Refresh_icon.png" id="reload"></a>
+    <a><img src="/recources/images/question-mark.png" id="question"></a>
+        <a href="#" id="start">Start</a>
+
+    <div id="points-div1">
+        <a id="plus1">+</a>
+        <a id="minus1">-</a>
+        <p id="pointleft">0</a>
+
+    </div>
+    <div id="points-div2">
+        <a id="plus2">+</a>
+        <a id="minus2">-</a>
+        <p1 id="pointright">0</a>
+    </div>
+
+        <div id="word">Press Start To Begin</div>
+
+
+
+
+        <a href="#" id="next">Next</a>
+        <audio id="audio">
+            <source src="recources\videos\catchphrase.mp3" type="audio/mpeg">
+          </audio>
+</body>
+
+<script>
+</script>
+<script>
+document.getElementById("start").addEventListener("click", playPause)
+document.getElementById("next").addEventListener("click", nextWord)
+document.getElementById("plus1").addEventListener("click", pointLeft)
+document.getElementById("plus2").addEventListener("click", pointRight)
+document.getElementById("minus1").addEventListener("click", mpointLeft)
+document.getElementById("minus2").addEventListener("click", mpointRight)
+
+const audio = document.querySelector("#audio");
+
+function playPause(){
+    var word = ["Caleb and Sophia", "first king of Israel", "David", "Noah", "Noah’s ark", "Pharoah", "Jezebel", "fall out the window", "eaten by dogs", "Ethiopian eunuch", "Jehu", "needed help understanding scripture", "walking on water", "Jesus", "Jehovah", "Apostle Paul", "Saul", "slingshot", "arrow", "sword", "Bible", "parchment", "144000", "baptism", "door-to-door", "Bible study", "Return Visit", "drachma coin", "Field Service Report", "Local Needs", "Digging for Spiritual Gems", "The Three Hebrews", "Gilead", "Bethel", "SKE", "LDC", "WDC", "Disaster Relief Committee", "holiness", "fruitage of the spirit", "Holy Spirit", "Mount Of Olives", "love", "joy", "peace", "patience", "kindness", "goodness", "faith mildness", "self-control", "Jubilee Year", "Judgement", "Armageddon", "Great Tribulation", "leviathan", "Lord’s Evening Meal", "loyal love", "bread", "wine", "Passover", "Ministerial Servant", "Elder", "Pioneer", "brothers and sisters", "Regional Convention", "Bible drama", "Macedonia", "Corinth", "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi", "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrew", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation", "Nephilim", "paradise", "resurrection", "Circuit Overseer", "pestilence", "District Overseer", "ten plagues", "gnats", "flies", "hail", "Sodom and Gomorrah", "ransom", "Sabbath Day", "sacred service", "Ephod", "five small stones", "helmet of salvation", "belt of truth", "breastplate of righteousness", "Septuagint", "Daily Text", "rainbow", "animals by twos", "Tree of Life", "volunteer spirit", "Tree of the Knowledge of Good and Bad", "unleavened bread", "undeserved kindness", "wicked one", "Satan the Devil", "angels", "Mount Zion", "myriads of angels", "Pioneer School", "Regular Pioneer", "Auxiliary Pioneer", "Unbaptized Publisher", "Bible student", "Enjoy Life Forever book", "Enjoy Life Forever brochure", "green Bible", "Consolation", "Proclaimers book", "Yearbook", "Learn From the Great Teacher book", "Live Forever book", "cart witnessing", "phone witnessing", "letter writing", "Family Worship", "If You Could See What I See", "purple triangle", "Nazi Germany", "Hitler", "Stalin", "King of the North", "King of the South", "Ark of the Covenant", "Abrahamic Covenant", "New Covenant", "Mosaic Law", "Ten Commandments", "writing on the wall", "immense image", "seven times", "Initial Call", "stage", "Kingdom Hall", "literature counter", "Secretary", "Coordinator of the Body of Elders", "Presiding Overseer", "body of elders", "Governing Body", "Service Overseer", "Service Committee", "disfellowshipped", "public reproof", "private reproof", "judicial committee", "greed", "idolatry", "faithful slave", "angelic direction", "Charles Taze Russell", "Pastor Russell", "Nathan Knorr", "Judge Rutherford", "prayer", "meditation", "read the Bible every day", "Creation vs Evolution", "microphones", "AV department", "Zoom", "You must unmute", "Can you hear me", "Breakout Rooms", "Co-host", "Peace and security", "frogs", "Thousand Year", "Thousand Year Reign", "Millennial Reign", "Throne", "Invitation work", "Tract work", "Not-At-Homes", "Do Not Calls", "No Trespassing", "Private Property", "Scepter", "Twig of Jesse", "Two Sticks", "Bible prophecy", "Daniel and the Lions pit", "Parting The Red Sea", "Rod", "Flowering Rod", "Tower Of Babel", "Wife of Lot", "Pillar of Salt", "Twelve Spies", "Brian and Gloria", "Scarlet Rope", "Burning Bush", "Red Sea", "Balaams Donkey", "Garden Of Eden", "Seraphs", "Cherubs", "Jesus feeds thousands", "Woman at the well", "Alabaster jar", "The Devil tests Jesus", "Jesus walks on water", "Fear God not men", "Wheat and the Weeds", "Paul sent to Rome", "Palestine", "Keys of the Kingdom", "Mustard Grain", "Fig Tree", "Man with the withering hands", "Legion", "Crossing the Red Sea", "Golden Calf", "Genuine nard", "Angel visits Mary", "Jesus heals the sick", "Jesus resurrects Lazarus", "Doubting Thomas", "Four Living Creatures", "Cherub with four faces", "Prodigal son", "Don’t cast pearls among swine", "Honeycomb", "Tax Collector", "Patriarch", "Toes of iron and clay", "Head of gold", "Babylon", "Medo-Persia", "Greece", "Revealer of Secrets", "Almighty God", "King Of Eternity", "Wonderful Counselor", "Bible-based counsel", "A little wine for the stomach", "Alpha and Omega", "Seven Congregations", "Anglo-American World War", "Visions", "New Scrolls", "Leap like a stag", "Sacred secret", "Lair of a cobra", "Wild Beast", "Two-horned Bear", "Holocaust", "Siberia", "World Headquarters", "Time of the end", "Preaching Work", "Read in an undertone", "Jewish exiles", "185000 killed in one night", "Mountain of Jehovah", "Basement scene", "Scene of this world", "Theatrical spectacle to the world", "Counsel", "Commendation", "My cup is well-filled", "Bad Association", "Temple", "Shipwrecked", "Obey God as ruler", "Taste and see Jehovah is good", "None of his bones broken", "Pierced with spear", "Pruning shears", "The meek will possess the earth", "Learn war no more", "Lion of Judah", "Lamb of God", "Throw your burden on Jehovah", "Pray incessantly", "Supplication", "Thanksgiving", "Women are a large army", "Fellow workers", "The harvest is great", "Workers are few", "Mind of Christ", "Put on the new personality", "New personality", "Neeta and Jade", "Sing praises to Jehovah", "Hallelujah", "Sanctity of life", "Parapet", "Baal", "Foreign language congregation", "Foreign language group", "Chief cornerstone", "A Book for All People", "Benefit From Theocratic Ministry School Education", "What Does the Bible Really Teach", "What Can the Bible Teach Us", "The Bible​—What Is Its Message", "The Government That Will Bring Paradise", "Jehovah’s Witnesses in the Twentieth Century", "Bearing Thorough Witness About God’s Kingdom", "Come Be My Follower", "Draw Close to Jehovah", "Is There a Creator Who Cares About You", "Does God Really Care About Us", "Pay Attention to Daniel’s Prophecy", "Watch Tower Publications Index", "Jehovah’s Witnesses and Education", "Good News From God", "From Our Archives", "The Secret of Family Happiness", "Awake", "You Can Be God’s Friend", "See the Good Land", "The Bible​—God’s Word or Man’s", "The Greatest Man Who Ever Lived", "The Guidance of God​—Our Way to Paradise", "How Can Blood Save Your Life", "How Your Donations Are Used", "Your Family Can Be Happy", "How Can You Have a Happy Life", "What Happens to Us When We Die", "Bible Questions Answered", "Bible Verses Explained", "The Bible Changes Lives", "Experiences of Jehovah’s Witnesses", "Frequently Asked Questions About Jehovah’s Witnesses", "Help for the Family", "Imitate Their Faith", "Was It Designed", "Young People Ask", "Isaiah’s Prophecy​—Light for All Mankind", "Insight on the Scriptures", "Live With Jehovah’s Day in Mind", "Jehovah’s Witnesses​—Unitedly Doing God’s Will Worldwide", "Who Are Doing Jehovah’s Will Today", "God’s Word for Us Through Jeremiah", "Jehovah’s Witnesses​—Who Are They What Do They Believe", "Jehovah’s Witnesses​—Proclaimers of God’s Kingdom", "Jesus​—The Way, the Truth, the Life", "Knowledge That Leads to Everlasting Life", "Our Kingdom Ministry", "Keep on the Watch", "God’s Kingdom Rules", "A Satisfying Life​—How to Attain It", "Was Life Created", "Listen to God", "The Origin of Life​—Five Questions Worth Asking", "Lessons You Can Learn From the Bible", "Enjoy Life Forever​—An Interactive Bible Course", "Enjoy Life Forever​—Introductory Bible Lessons", "Life Stories of Jehovah’s Witnesses", "Listen to God and Live Forever", "Look I Am Making All Things New", "Learn From the Great Teacher", "Keep Yourselves in God’s Love", "How to Remain in God’s Love", "My Bible Lessons", "Our Christian Life and Ministry​—Meeting Workbook", "My Book of Bible Stories", "New World Translation of the Holy Scriptures", "Organized to Do Jehovah’s Will", "The Road to Everlasting Life​—Have You Found It", "Organized to Accomplish Our Ministry", "Our Problems​—Who Will Help Us Solve Them", "Lasting Peace and Happiness​—How to Find Them", "You Can Live Forever in Paradise on Earth", "The Pathway to Peace and Happiness", "What Is the Purpose of Life How Can You Find It", "Revelation​—Its Grand Climax At Hand", "Return to Jehovah", "Real Faith​—Your Key to a Happy Life", "What Does God Require of Us", "Pure Worship of Jehovah​—Restored At Last", "Reasoning From the Scriptures", "Research Guide for Jehovah’s Witnesses", "Theocratic Ministry School Guidebook", "Mankind’s Search for God", "All Scripture Is Inspired of God and Beneficial", "Spirits of the Dead​—Can They Help You or Harm You", "Apply Yourself to Reading and Teaching", "Should You Believe in the Trinity", "True Peace and Security​—How Can You Find It", "Victory Over Death​—Is It Possible for You", "The Watchtower Announcing Jehovah’s Kingdom", "When Someone You Love Dies", "Will There Ever Be a World Without War", "Why Should We Worship God in Love and Truth", "Worldwide Security Under the “Prince of Peace”", "Worship the Only True God", "Yearbook of Jehovah’s Witnesses", "Teach Your Children", "Questions Young People Ask​—Answers That Work", "Answers to 10 Questions Young People Ask"]
+    let randword = word[Math.floor(Math.random() * word.length)]
+    document.getElementById("word").style.display = "grid";
+    document.getElementById("word").innerHTML = randword;
+    audio.play();
+    document.getElementById("word").style.border = "5px solid #606c38";
+    setTimeout(function(){ document.getElementById("word").innerHTML = "Press Start To Begin"; document.getElementById("next").style.display = "none"; document.getElementById("start").style.display = "flex"; document.getElementById("word").style.display = "none"; }, 54000);
+    document.getElementById("start").style.display = "none";
+    document.getElementById("next").style.display = "flex";
+}
+function nextWord(){
+    var word = ["Caleb and Sophia", "first king of Israel", "David", "Noah", "Noah’s ark", "Pharoah", "Jezebel", "fall out the window", "eaten by dogs", "Ethiopian eunuch", "Jehu", "needed help understanding scripture", "walking on water", "Jesus", "Jehovah", "Apostle Paul", "Saul", "slingshot", "arrow", "sword", "Bible", "parchment", "144000", "baptism", "door-to-door", "Bible study", "Return Visit", "drachma coin", "Field Service Report", "Local Needs", "Digging for Spiritual Gems", "The Three Hebrews", "Gilead", "Bethel", "SKE", "LDC", "WDC", "Disaster Relief Committee", "holiness", "fruitage of the spirit", "Holy Spirit", "Mount Of Olives", "love", "joy", "peace", "patience", "kindness", "goodness", "faith mildness", "self-control", "Jubilee Year", "Judgement", "Armageddon", "Great Tribulation", "leviathan", "Lord’s Evening Meal", "loyal love", "bread", "wine", "Passover", "Ministerial Servant", "Elder", "Pioneer", "brothers and sisters", "Regional Convention", "Bible drama", "Macedonia", "Corinth", "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi", "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrew", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation", "Nephilim", "paradise", "resurrection", "Circuit Overseer", "pestilence", "District Overseer", "ten plagues", "gnats", "flies", "hail", "Sodom and Gomorrah", "ransom", "Sabbath Day", "sacred service", "Ephod", "five small stones", "helmet of salvation", "belt of truth", "breastplate of righteousness", "Septuagint", "Daily Text", "rainbow", "animals by twos", "Tree of Life", "volunteer spirit", "Tree of the Knowledge of Good and Bad", "unleavened bread", "undeserved kindness", "wicked one", "Satan the Devil", "angels", "Mount Zion", "myriads of angels", "Pioneer School", "Regular Pioneer", "Auxiliary Pioneer", "Unbaptized Publisher", "Bible student", "Enjoy Life Forever book", "Enjoy Life Forever brochure", "green Bible", "Consolation", "Proclaimers book", "Yearbook", "Learn From the Great Teacher book", "Live Forever book", "cart witnessing", "phone witnessing", "letter writing", "Family Worship", "If You Could See What I See", "purple triangle", "Nazi Germany", "Hitler", "Stalin", "King of the North", "King of the South", "Ark of the Covenant", "Abrahamic Covenant", "New Covenant", "Mosaic Law", "Ten Commandments", "writing on the wall", "immense image", "seven times", "Initial Call", "stage", "Kingdom Hall", "literature counter", "Secretary", "Coordinator of the Body of Elders", "Presiding Overseer", "body of elders", "Governing Body", "Service Overseer", "Service Committee", "disfellowshipped", "public reproof", "private reproof", "judicial committee", "greed", "idolatry", "faithful slave", "angelic direction", "Charles Taze Russell", "Pastor Russell", "Nathan Knorr", "Judge Rutherford", "prayer", "meditation", "read the Bible every day", "Creation vs Evolution", "microphones", "AV department", "Zoom", "You must unmute", "Can you hear me", "Breakout Rooms", "Co-host", "Peace and security", "frogs", "Thousand Year", "Thousand Year Reign", "Millennial Reign", "Throne", "Invitation work", "Tract work", "Not-At-Homes", "Do Not Calls", "No Trespassing", "Private Property", "Scepter", "Twig of Jesse", "Two Sticks", "Bible prophecy", "Daniel and the Lions pit", "Parting The Red Sea", "Rod", "Flowering Rod", "Tower Of Babel", "Wife of Lot", "Pillar of Salt", "Twelve Spies", "Brian and Gloria", "Scarlet Rope", "Burning Bush", "Red Sea", "Balaams Donkey", "Garden Of Eden", "Seraphs", "Cherubs", "Jesus feeds thousands", "Woman at the well", "Alabaster jar", "The Devil tests Jesus", "Jesus walks on water", "Fear God not men", "Wheat and the Weeds", "Paul sent to Rome", "Palestine", "Keys of the Kingdom", "Mustard Grain", "Fig Tree", "Man with the withering hands", "Legion", "Crossing the Red Sea", "Golden Calf", "Genuine nard", "Angel visits Mary", "Jesus heals the sick", "Jesus resurrects Lazarus", "Doubting Thomas", "Four Living Creatures", "Cherub with four faces", "Prodigal son", "Don’t cast pearls among swine", "Honeycomb", "Tax Collector", "Patriarch", "Toes of iron and clay", "Head of gold", "Babylon", "Medo-Persia", "Greece", "Revealer of Secrets", "Almighty God", "King Of Eternity", "Wonderful Counselor", "Bible-based counsel", "A little wine for the stomach", "Alpha and Omega", "Seven Congregations", "Anglo-American World War", "Visions", "New Scrolls", "Leap like a stag", "Sacred secret", "Lair of a cobra", "Wild Beast", "Two-horned Bear", "Holocaust", "Siberia", "World Headquarters", "Time of the end", "Preaching Work", "Read in an undertone", "Jewish exiles", "185000 killed in one night", "Mountain of Jehovah", "Basement scene", "Scene of this world", "Theatrical spectacle to the world", "Counsel", "Commendation", "My cup is well-filled", "Bad Association", "Temple", "Shipwrecked", "Obey God as ruler", "Taste and see Jehovah is good", "None of his bones broken", "Pierced with spear", "Pruning shears", "The meek will possess the earth", "Learn war no more", "Lion of Judah", "Lamb of God", "Throw your burden on Jehovah", "Pray incessantly", "Supplication", "Thanksgiving", "Women are a large army", "Fellow workers", "The harvest is great", "Workers are few", "Mind of Christ", "Put on the new personality", "New personality", "Neeta and Jade", "Sing praises to Jehovah", "Hallelujah", "Sanctity of life", "Parapet", "Baal", "Foreign language congregation", "Foreign language group", "Chief cornerstone", "A Book for All People", "Benefit From Theocratic Ministry School Education", "What Does the Bible Really Teach", "What Can the Bible Teach Us", "The Bible​—What Is Its Message", "The Government That Will Bring Paradise", "Jehovah’s Witnesses in the Twentieth Century", "Bearing Thorough Witness About God’s Kingdom", "Come Be My Follower", "Draw Close to Jehovah", "Is There a Creator Who Cares About You", "Does God Really Care About Us", "Pay Attention to Daniel’s Prophecy", "Watch Tower Publications Index", "Jehovah’s Witnesses and Education", "Good News From God", "From Our Archives", "The Secret of Family Happiness", "Awake", "You Can Be God’s Friend", "See the Good Land", "The Bible​—God’s Word or Man’s", "The Greatest Man Who Ever Lived", "The Guidance of God​—Our Way to Paradise", "How Can Blood Save Your Life", "How Your Donations Are Used", "Your Family Can Be Happy", "How Can You Have a Happy Life", "What Happens to Us When We Die", "Bible Questions Answered", "Bible Verses Explained", "The Bible Changes Lives", "Experiences of Jehovah’s Witnesses", "Frequently Asked Questions About Jehovah’s Witnesses", "Help for the Family", "Imitate Their Faith", "Was It Designed", "Young People Ask", "Isaiah’s Prophecy​—Light for All Mankind", "Insight on the Scriptures", "Live With Jehovah’s Day in Mind", "Jehovah’s Witnesses​—Unitedly Doing God’s Will Worldwide", "Who Are Doing Jehovah’s Will Today", "God’s Word for Us Through Jeremiah", "Jehovah’s Witnesses​—Who Are They What Do They Believe", "Jehovah’s Witnesses​—Proclaimers of God’s Kingdom", "Jesus​—The Way, the Truth, the Life", "Knowledge That Leads to Everlasting Life", "Our Kingdom Ministry", "Keep on the Watch", "God’s Kingdom Rules", "A Satisfying Life​—How to Attain It", "Was Life Created", "Listen to God", "The Origin of Life​—Five Questions Worth Asking", "Lessons You Can Learn From the Bible", "Enjoy Life Forever​—An Interactive Bible Course", "Enjoy Life Forever​—Introductory Bible Lessons", "Life Stories of Jehovah’s Witnesses", "Listen to God and Live Forever", "Look I Am Making All Things New", "Learn From the Great Teacher", "Keep Yourselves in God’s Love", "How to Remain in God’s Love", "My Bible Lessons", "Our Christian Life and Ministry​—Meeting Workbook", "My Book of Bible Stories", "New World Translation of the Holy Scriptures", "Organized to Do Jehovah’s Will", "The Road to Everlasting Life​—Have You Found It", "Organized to Accomplish Our Ministry", "Our Problems​—Who Will Help Us Solve Them", "Lasting Peace and Happiness​—How to Find Them", "You Can Live Forever in Paradise on Earth", "The Pathway to Peace and Happiness", "What Is the Purpose of Life How Can You Find It", "Revelation​—Its Grand Climax At Hand", "Return to Jehovah", "Real Faith​—Your Key to a Happy Life", "What Does God Require of Us", "Pure Worship of Jehovah​—Restored At Last", "Reasoning From the Scriptures", "Research Guide for Jehovah’s Witnesses", "Theocratic Ministry School Guidebook", "Mankind’s Search for God", "All Scripture Is Inspired of God and Beneficial", "Spirits of the Dead​—Can They Help You or Harm You", "Apply Yourself to Reading and Teaching", "Should You Believe in the Trinity", "True Peace and Security​—How Can You Find It", "Victory Over Death​—Is It Possible for You", "The Watchtower Announcing Jehovah’s Kingdom", "When Someone You Love Dies", "Will There Ever Be a World Without War", "Why Should We Worship God in Love and Truth", "Worldwide Security Under the “Prince of Peace”", "Worship the Only True God", "Yearbook of Jehovah’s Witnesses", "Teach Your Children", "Questions Young People Ask​—Answers That Work", "Answers to 10 Questions Young People Ask"]
+    let randword = word[Math.floor(Math.random() * word.length)]
+    document.getElementById("word").innerHTML = randword;
+}
+
+function pointLeft(){
+    var pointleft = document.getElementById("pointleft").innerHTML;
+    if (pointleft < 6){
+        var score = Number(pointleft) + 1
+        document.getElementById("pointleft").innerHTML = score;
+    } else {
+        alert("Team 1 Wins!")
+        document.getElementById("pointleft").innerHTML = 7;
+    }
+}
+function pointRight(){
+    var pointright = document.getElementById("pointright").innerHTML;
+    if (pointright < 6){
+        var score = Number(pointright) + 1
+        document.getElementById("pointright").innerHTML = score;
+    } else {
+        alert("Team 2 Wins!")
+        document.getElementById("pointright").innerHTML = 7;
+    }
+}
+function mpointLeft(){
+    var pointleft = document.getElementById("pointleft").innerHTML;
+    if (pointleft > 0){
+        var score = Number(pointleft) - 1
+        document.getElementById("pointleft").innerHTML = score;
+    }
+}
+function mpointRight(){
+    var pointright = document.getElementById("pointright").innerHTML;
+    if (pointright > 0){
+        var score = Number(pointright) - 1
+        document.getElementById("pointright").innerHTML = score;
+    }
+}
+`alert("For Mobile Users:\nTurn Off Silent Mode For Sounds To Play")`
+</script>
+</html>

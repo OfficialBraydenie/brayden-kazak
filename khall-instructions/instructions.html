@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" id="everything">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5a597da6ce.js" crossorigin="anonymous"></script>
+    <title>State Rd Kingdom Hall A/V Instructions</title>
+    <style>
+        ::-webkit-scrollbar{
+            width: 10px;
+            background: rgb(255, 255, 255);
+}
+        ::-webkit-scrollbar-thumb{
+            background: rgb(77, 125, 201);
+            border-radius: 10px;
+}
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(74,109,167); 
+}
+        html{
+            scroll-behavior: smooth;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        
+        #container{
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            position: fixed;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            background: white;
+            top: 0px;
+            box-shadow: 0px 0px 20px;
+        }
+        .selections{
+            display: flex;
+            border: 3px solid black;
+            border-radius: 20px;
+            padding: 20px;
+            text-decoration: none;
+            margin: none;
+            margin-right: 30px;
+            color: black;
+            background: white;
+            font-size: 20px;
+            text-align: center;
+            transition: 1s;
+            width: 140px;
+            justify-content: center;
+        }
+        .selections:hover{
+            background: rgb(74,109,167);
+            color: white;
+        }
+        .extras{
+            display: flex;
+            border: 3px solid black;
+            border-radius: 20px;
+            padding: 20px;
+            text-decoration: none;
+            margin: none;
+            margin-right: 30px;
+            color: rgb(255, 255, 255);
+            background: white;
+            font-size: 20px;
+            text-align: center;
+            transition: 1s;
+            width: 140px;
+            justify-content: center;
+            font-family:'Times New Roman', Times, serif;
+        }
+        .extras:hover{
+            background: rgb(74,109,167);
+            color: rgb(0, 0, 0);
+        }
+        #vid-brother{
+            background: rgb(250,251,234);
+            border: 2px solid rgb(120,142,175);
+        }
+        #vid-brother-txt{
+            margin: 20px;
+            margin-left: 40px;
+            display: inline-block;
+            line-height: 2;
+        }
+        #audio-brother{
+            background: rgb(208,220,240);
+            border: 2px solid rgb(120,142,175);
+        }
+        #audio-brother-txt{
+            margin: 20px;
+            margin-left: 40px;
+            display: inline-block;
+            line-height: 2;
+        }
+        #zoom-attendant{
+            background: rgb(235, 208, 240);
+            border: 2px solid rgb(120,142,175);
+        }
+        #zoom-attendant-txt{
+            margin: 20px;
+            margin-left: 40px;
+            display: inline-block;
+            line-height: 2;
+        }
+        #xkeys{
+            background: rgb(243,243,243);
+            border: 2px solid rgb(120,142,175);
+        }
+        #xkeys-txt{
+            margin: 20px;
+            margin-left: 40px;
+            display: inline-block;
+            line-height: 2;
+        }
+        #reference{
+            text-decoration: none;
+            color: black;
+            text-decoration: underline;
+        }
+        #reference-span{
+            opacity: 0;
+            display: inline-block;
+            transition: 0.8s;
+            position: absolute;
+            margin-left: 10px;
+            border: 3px solid black;
+            margin-top: -25px;
+            pointer-events: none;
+        }
+        #reference:hover + #reference-span{
+            background: white;
+            opacity: 1;
+        }
+        #class-1{
+            margin-left: 40px;
+        }
+        #xkeys-pad{
+            height: 710px; 
+            width: 460px;
+            background: url(images/x-keys.png);
+            background-size: 460px;
+        }
+        #xkeys-wrapper{
+            width: 383px;
+            height: 573px;
+            padding-top: 68px;
+            padding-left: 38px;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 0px 0px;
+        }
+        #xkeys-txt{
+            display: flex;
+            align-items: center;
+        }
+        #xkeys-desc-txt{
+            display: flex;
+            padding: 20px;
+            float: right;
+            background: rgb(221, 221, 221);
+            border: 2px solid rgb(120,142,175);
+            margin: 20px;
+            margin-left: 100px;
+            width: 800px;
+            font-size: 35px;
+            height: 420px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="container">
+    <a id="videohref" class="selections">Video</a>
+    <a id="audiohref" class="selections">Audio</a>
+    <a id="zoomhref" class="selections">Zoom Attendant</a>
+    <a id="xkeyshref" class="selections" style="margin-right: 100px;">X-Keys Buttons</a>
+    <a id="enlarge" class="extras" style="background: rgb(132, 185, 255);">Enlarge Text</a>
+    <a id="reset" class="extras" style="background: rgb(132, 185, 255); display: none;">Reset Text</a>
+    <button id="close" class="extras" onclick="window.close()" style="background: rgb(255, 78, 78);">Close</button>
+</div>
+
+<div id="videoScroll"></div>
+<h1 id="video" style="padding-top: 110px;">Video:</h1>
+
+<div id="vid-brother">
+    <p1 id="vid-brother-txt">
+        <h1 style="margin: 0px; margin-left: -30px; margin-top: -11px;">MEETING SETUP</h1>
+        1) Turn on the switch in the sound cabinet (bottom center). This will turn on the audio mixer & the media monitor (& in future the stage monitors -- PENDING INSTALLATION).<br>
+        2) Sign into the appropriate Windows user account by clicking anywhere on the clock screen then clicking on your account.<br>
+        A message will appear asking if you want to ‘Start All Apps’. Click Yes and follow the on-screen prompts carefully.<br>
+        <dl style="margin-left: 40px; margin-top: 2px;">
+            <dt>Please Note:</dt>
+            <dd style="margin-bottom: -10px;">
+                    <li>
+                        The screen layout should match what is pictured below:
+                    </li>
+                    <img src="images/screen-layout.png" style="width: 350px; border: 5px solid ;">
+                    <li>
+                        If keys do not function properly for some reason 1) press <strong><a href="#" id="reference">SHIFT</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/shift.png"></span></strong> ; 2) <strong><a href="#" id="reference">CLOSE ALL APPS</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/closeallapps.png"></span></strong> ; 3) after the apps close press the <strong><a href="#" id="reference">START ALL APPS</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/startallapps.png"></span></strong> key
+                    </li>
+                    <li>
+                        If that doesn’t work, you’ll have to manually open the apps & configure them as seen in the pictured layout AND please notify your overseer & Norm Mlckovsky @ (216) 570-7461 so we can resolve the issue.
+                    </li>
+                    <li>
+                        This exact screen layout is necessary for the X-Keys keypad to function properly.
+                    </li>
+            </dd>
+        </dl>
+        3) Use the Sharp remote to turn on both stage monitors. Monitors are ON when the green light at the bottom of the monitor is on.<br>
+        4) Adjust the master volume level on the audio mixer (far right vertical slide) to 0 which is a little more than halfway up from the bottom.<br>
+        5) Adjust the Media volume level on the audio mixer by sliding it up roughly 10-15% up from the bottom.<br>
+        6) Start KHConf Custom Live Streaming Service by clicking More on the Zoom Meeting Control bar.<br>
+        <div style="margin-left: 40px;">Then click Live on Custom Live Streaming Service. A browser window will open with a progress bar.<br>
+            Simply wait until progress is complete then close the browser.<br>
+            <div style="margin-left: 40px;">NOTE: it may seem like there is an error, OK to ignore and proceed to next step.</div>
+        </div>
+        7) In JW Library, click on the Meetings menu, then click on the Media menu. You may have to download the current meeting info by clicking on the cloud, then clicking on Download 720p.<br>
+        8) Play soft background music before the meeting by pressing the <strong><a href="#" id="reference">BACKGROUND MUSIC</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/backgroundmusic.png"></span></strong> key. This will automatically begin to shuffle Sing to Jehovah-Meetings songs.<br>
+        <div style="margin-left: 40px;">NOTE: If you see that JW Library is playing a song but you don’t hear any audio, refer to steps #4-5 as you may not have adjusted the Master or Media volumes correctly on the mixer.<br></div>
+        <dl style="margin-top: 2px;">
+            <dt>9) Prepare the stage iPad by doing the following:</dt>
+            <dd style="margin-bottom: -10px;">
+                    <li>
+                        Check the stage iPad’s battery level and the battery level of the power brick
+                    </li>
+                    <li>
+                        Join the appropriate Zoom meeting (without Audio and Camera off)
+                    </li>
+                    <li>
+                        Open Participants list
+                    </li>
+                    <li>
+                        Place the iPad in the tripod on the stage
+                    </li>
+            </dd>
+        </dl>
+        10) When the Chairman gets on the stage to begin the meeting, press <strong><a href="#" id="reference">ZOOM MIC & CAM TOGGLE</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/zoommiccamtoggle.png"></span></strong> key to turn the stage camera and microphone on in Zoom.<br>
+
+        <h1 style="margin: 0px; margin-left: -30px; margin-top: 30px;">DURING THE MEETING</h1>
+    <div id="class-1">
+        <h1 style="margin: 0px; margin-left: -30px;">Screen Sharing</h1>
+
+        Make sure the Media volume on the audio mixer is at an appropriate level. Once the appropriate media has been clicked and is playing, quickly press the <strong><a href="#" id="reference">START SHARE</a><span id="reference-span"><img  style="width: 200px; height: 100px; margin-bottom: -11px;" src="images/startshare.png"></span></strong> key.<br>
+        You should see on the top of your Zoom screen (top monitor) the screen share control bar indicating that you are sharing your screen:<br>
+        <img src="images/screenshare.png"><br>
+        If the video is working but no audio is being heard by Zoom participants, click on … More at the far right of the Share Screen Control bar. Then click on Optimize for video clip.<br>
+        This should start to broadcast audio to Zoom participants.<br>
+        If the <strong><a href="#" id="reference">START SHARE</a><span id="reference-span"><img  style="width: 200px; height: 100px; margin-bottom: -11px;" src="images/startshare.png"></span></strong> key is not working, either use ALT+S to launch the share screen menu, or use the mouse to click on Share Screen. Select ‘Screen 3’ and make sure ‘Optimize for video clip’ is checked, then click ‘Share’.<br>
+        If the JW Library media you are trying to play is paused, press the <strong><a href="#" id="reference">JW LIB PLAY/PAUSE</a><span id="reference-span"><img  style="width: 200px; height: 100px; margin-bottom: -11px;" src="images/jwlibplaypause.png"></span></strong> key to start the video OR click the play/pause button on the screen.<br>
+
+        <h1 style="margin: 0px; margin-left: -30px;">Zoom Participant-Single</h1>
+
+        To show a Zoom participant on the stage monitors:<br>
+        <div id="class-1">
+            1) Right-click on the participant you’d like to show and click Spotlight for Everyone<br>
+            2) Press the <strong><a href="#" id="reference">DISPLAY ZOOM</a><span id="reference-span"><img  style="width: 100px; height: 200px; margin-bottom: -11px;" src="images/displayzoom.png"></span></strong> key
+        </div>
+        To stop showing a Zoom participant on the stage monitors:<br>
+        <div id="class-1">
+            1) Press the <strong><a href="#" id="reference">DISPLAY JW LIBRARY</a><span id="reference-span"><img  style="width: 100px; height: 200px; margin-bottom: -11px;" src="images/displayjwlibmedia.png"></span></strong> key<br>
+            2) Right-click on the participant you were Spotlighting and click Remove Spotlight
+        </div>
+    
+        <h1 style="margin: 0px; margin-left: -30px;">Zoom Participant-Dual</h1>
+
+        To show 2 Side-by-Side Zoom participants on the stage monitors:<br>
+        <div id="class-1">
+            1) Right-click on the first participant you’d like to show and click Spotlight for Everyone<br>
+            2) Right-click on the second participant you’d like to show and click Add Spotlight<br>
+            3) Press the <strong><a href="#" id="reference">DISPLAY ZOOM</a><span id="reference-span"><img  style="width: 100px; height: 200px; margin-bottom: -11px;" src="images/displayzoom.png"></span></strong> key
+        </div>
+
+        To stop showing dual Zoom participants on the stage monitors:<br>
+        <div id="class-1">
+            1) Press the <strong><a href="#" id="reference">DISPLAY JW LIBRARY</a><span id="reference-span"><img  style="width: 100px; height: 200px; margin-bottom: -11px;" src="images/displayjwlibmedia.png"></span></strong> key<br>
+            2) Right-click on the first participant you were Spotlighting and click Remove Spotlight<br>
+            3) Right-click on the second participant you were Spotlighting and click Remove Spotlight
+        </div>
+
+        <h1 style="margin: 0px; margin-left: -30px;">Zoom Participant w/JW Library Media to display</h1>
+
+        To show Zoom participant along w/JW Library media on the stage monitors:<br>
+        <div id="class-1">
+            1) Right-click on the participant you’d like to show and click Spotlight for Everyone<br>
+            2) Press the <strong><a href="#" id="reference">DISPLAY ZOOM</a><span id="reference-span"><img  style="width: 100px; height: 200px; margin-bottom: -11px;" src="images/displayzoom.png"></span></strong> key<br>
+            3) Once their part calls for media press the <strong><a href="#" id="reference">START REMOTE JW LIB</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/startremotejwlib.png"></span></strong> key which will display JW
+            Library along with the Zoom participant on the stage monitor
+        </div>
+
+        To Stop the JW Library media from being displayed on the stage monitors:<br>
+        <div id="class-1">
+            1) Once the media is done press the <strong><a href="#" id="reference">STOP REMOTE JW LIB</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/stopremotejwlib.png"></span></strong> key which will go back to displaying the Zoom participant on the stage monitors
+        </div>
+
+        To stop showing Zoom participant on the stage monitors:<br>
+        <div id="class-1">
+            1) Press the <strong><a href="#" id="reference">DISPLAY JW LIBRARY</a><span id="reference-span"><img  style="width: 100px; height: 200px; margin-bottom: -11px;" src="images/displayjwlibmedia.png"></span></strong> key<br>
+            2) Right-click on the participant you were Spotlighting and click Remove Spotlight
+        </div>
+        
+
+        <h1 style="margin: 0px; margin-left: -30px;">Zoom Participant w/OnlyM Media to display</h1>
+
+        To show Zoom participant along w/OnlyM media on the stage monitors: <br>
+        <div id="class-1">
+            1) Right-click on the participant you’d like to show and click Spotlight for Everyone<br>
+            2) Press the <strong><a href="#" id="reference">DISPLAY ZOOM</a><span id="reference-span"><img  style="width: 100px; height: 200px; margin-bottom: -11px;" src="images/displayzoom.png"></span></strong> key<br>
+            3) Once their part calls for media press the <strong><a href="#" id="reference">START REMOTE ONLY M</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/startremoteonlym.png"></span></strong> key which will display JW Library along with the Zoom participant on the stage monitor
+        </div>
+
+        To Stop the OnlyM media from being displayed on the stage monitors:<br>
+        <div id="class-1">
+            1) Once the media is done press the <strong><a href="#" id="reference">STOP REMOTE ONLY M</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/stopremoteonlym.png"></span></strong> key which will go back to displaying the Zoom participant on the stage monitors
+        </div>
+
+        To stop showing Zoom participant on the stage monitors:<br>
+        <div id="class-1">
+            1) Press the <strong><a href="#" id="reference">DISPLAY JW LIBRARY</a><span id="reference-span"><img  style="width: 100px; height: 200px; margin-bottom: -11px;" src="images/displayjwlibmedia.png"></span></strong> key<br>
+            2) Right-click on the participant you were Spotlighting and click Remove Spotlight
+        </div>
+    </div>
+
+        <h1  style="margin: 0px; margin-left: -30px; margin-top: 30px;">END OF MEETING</h1>
+
+        1) When meeting ends press <strong><a href="#" id="reference">ZOOM MIC & CAM TOGGLE</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/zoommiccamtoggle.png"></span></strong> key to turn the stage camera and microphone off in Zoom.<br>
+        2) Play soft background music after the meeting by pressing the <strong><a href="#" id="reference">BACKGROUND MUSIC</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/backgroundmusic.png"></span></strong> key. This will automatically begin to shuffle Sing to Jehovah-Meetings songs. If you see that JW Lib. is playing a song but you don’t hear any audio, refer to steps #4-5 as you may not have adjusted the Master or Media volumes on the mixer<br>
+        3) Turn off the Stage iPad and recharge the power bank.<br>
+        4) After 15 minutes press the <strong><a href="#" id="reference">SHIFT</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/shift.png"></span></strong> then <strong><a href="#" id="reference">SIGN OUT</a><span id="reference-span"><img  style="width: 100px; height: 100px; margin-bottom: -11px;" src="images/signout.png"></span></strong> key to automatically close Zoom and all other programs and sign out of the current user<br>
+        5) Replace stage iPad battery based on the following rotation:<br>
+        <div id="class-1">
+            a. All Mid-Week & Chinese Weekend Meeting: Swap batteries between iPad and charger<br>
+            b. 1st Sunday Meetings: Keep battery in iPad<br>
+            c. 2nd and 3rd Sunday Meetings: Swap batteries between iPad and charger Simply wait until progress is complete then close the browser.<br><div id="audioScroll"></div>
+        </div>
+        6) Turn off the switch in the sound cabinet (bottom center). This will turn off the audio mixer (& in future the stage monitors -- PENDING INSTALLATION).<br>
+        <div id="class-1">NOTE: Never shut down the computer</div>
+    </p1>
+</div>
+
+<h1 id="audio">Audio:</h1>
+
+<div id="audio-brother">
+    <p1 id="audio-brother-txt">  
+<h1 style="margin: 0px; margin-left: -30px; margin-top: -11px;">MEETING SETUP</h1>
+1) Perform microphone sound checks<br>
+2) Replace batteries based on the following rotation:<br>
+<div id="class-1">
+a. All Mid-Week & Chinese Weekend Meeting: Swap batteries between charger and mics<br>
+b. 1st Sunday Meetings: Swap batteries between charger and mics<br>
+c. 2nd and 3rd Sunday Meetings: Use batteries in mics until they die<br>
+</div>
+3) Hand the Yellow Roving mic to the Stage brother for Assistant parts<br>
+4) Hand each scheduled brother their Roving mic<br>
+
+<h1  style="margin: 0px; margin-left: -30px; margin-top: 20px;">ZOOM PARTICIPANT COMMENTING</h1>
+
+When the conductor calls on a Zoom participant, increase the ZOOM volume on the audio mixer. When the commentor has finished speaking, turn the volume completely off immediately. This step requires that we remain alert.<br>
+Prompt action will ensure that comments will be heard in their entirety AND that unexpected audio from Zoom participants will not distract the in-person meeting.
+<div id="class-1">NOTE: The ZOOM channel on the mixer, like all other channels, has an ON/OFF toggle button. This will enable & disable the channel.</div>
+When the ON button is illuminated, this channel is active and the volume level will respond accordingly.<br>
+When the ON button is NOT illuminated, there will be no audio available even if the volume is raised.<br>
+
+<h1  style="margin: 0px; margin-left: -30px; margin-top: 20px;">END OF MEETING</h1>
+
+1) Recharge the roving microphone batteries.
+<div id="class-1">
+a. All Mid-Week & Chinese Weekend Meeting: Remove batteries from mics and place in charger<br><div id="zoomScroll"></div>
+b. 1st and 2nd Sunday Meetings: Do nothing, leave batteries in mics for the next cong<br>
+c. 3rd Sunday Meeting: Remove batteries from mics and place in charger
+</div>
+    </p1>
+</div>
+
+<h1 id="zoom">Zoom Attendant:</h1>
+
+<div id="zoom-attendant">
+    <p1 id="zoom-attendant-txt">
+
+        <h1 style="margin: 0px; margin-left: -30px; margin-top: -11px;">MEETING SETUP</h1>
+        1) You have 3 location options as a Zoom Attendant:<br>
+        <div id="class-1">
+            a. Option 1: Home<br>
+            b. Option 2: Khall Upstairs<br>
+            c. Option 3: Anywhere at the Khall with personal headphones<br>
+        </div>
+        2) A personal device is required. It should have at least a tablet-size screen. A Windows device is not required but is preferred.<br>
+        3) Join the meeting as soon as the AV Video brother starts the meeting (which should be approx. 20-25 min prior to the scheduled start time. If you haven’t been admitted and made Co-Host contact the scheduled AV Video Brother.<br>
+        <div id="class-1">NOTE: DO NOT sign to the Cong Zoom account. This will sign out the Khall computer.<br></div>
+        4)  Monitor Waiting Room and grant access to the meeting<br>
+        <div id="class-1">a. Be attentive to the Waiting Room at all times during the meeting<br></div>
+        5) Distractions<br>
+        <div id="class-1">
+            a. Be attentive at all times to any distractions (crazy video, unmuting themselves, singing during songs)<br>
+            b. Keep participants screen active at all times so you can easily as many participants as possible<br>
+            c. Turn off camera if anything is overly distracting, indecent or offensive<br>
+            d. If someone blatantly is trying to disrupt the meeting, then put them in the Waiting Room and check with the COBE about removing them completely<br>
+        </div>
+            6) Commenting<br>
+                <div id="class-1">
+                    a. Participants will be unable to unmute themselves after the meeting begins<br>
+                    b. If a participant is called on to comment you will need to find them and click/tap Ask To Unmute<br>
+                    <div id="class-1">
+                        i. 2 options to Ask To Unmute:<br>
+                    <div id="class-1">
+                        1. Best: Filter the participant list by searching for their name at the top<br>
+                        2. OK: Find their video picture and click the menu in the top right or right-click on their video picture<br>
+                    </div>
+                        ii. After their comment is done give them a few seconds to mute themselves. If they forget to mute then you will need to mute them.<br>
+                    </div>
+                </div>
+
+            <div id="class-1">c. Lower all hands after it is clear the question has been answered and the conductor has moved on or asked an additional/auxiliary question<br></div>
+        7) Attendance<br>
+        <div id="class-1">
+            a. Make a note of the number of connections after the middle song has been sung<br>
+            b. Add to that number any connections that have more than one person<br><div id="xkeysScroll"></div>
+            c. Finally subtract the stage iPad, main platform, and any duplicate connections<br>
+            d. Text the number to Caleb Johnson (440.320.4738)<br>
+        </div>
+        8) Your job is done after the meeting is over<br>
+    </p1>
+</div>
+
+<h1 id="xkeys-nav">X-Keys Buttons:</h1>
+
+<div id="xkeys">
+
+    <p1 id="xkeys-txt">
+
+        <div id="xkeys-pad">
+        <div id="xkeys-wrapper">
+        <a href="#" id="square-button1" class="startallapps" onmouseover="displayOne()"></a>
+        <a href="#" id="square-button1" class="help" onmouseover="displayTwo()"></a>
+        <a href="#" id="square-button1" class="closeallapps" onmouseover="displayThree()"></a>
+        <a href="#" id="square-button1" class="shift" onmouseover="displayFour()"></a>
+
+        <a href="#" id="square-button1" class="backgroundmusic" onmouseover="displayFive()"></a>
+        <a href="#" id="square-button1" class="zoommiccamtoggle" onmouseover="displaySix()"></a>
+        <a href="#" id="square-button1" class="restart" onmouseover="displaySeven()"></a>
+        <a href="#" id="square-button1" class="signout" onmouseover="displayEight()"></a>
+
+        <a href="#" id="square-button1" class="displayzoom" onmouseover="displayNine()"></a>
+        <a href="#" id="square-button1" class="displayjwlibmedia" onmouseover="displayTen()"></a>
+        <a href="#" id="square-button1" class="startremotemedia" onmouseover="displayEleven()"></a>
+        <a href="#" id="square-button1" class="stopremotemedia" onmouseover="displayTwelve()"></a>
+
+        <a href="#" id="square-button1" class="displayzoom" onmouseover="displayThirteen()"></a>
+        <a href="#" id="square-button1" class="displayjwlibmedia" onmouseover="displayFourteen()"></a>
+        <a href="#" id="square-button1" class="startremotemedia" onmouseover="displayFifteen()"></a>
+        <a href="#" id="square-button1" class="stopremotemedia" onmouseover="displaySixteen()"></a>
+
+        <a href="#" id="square-button1" class="startshare" onmouseover="displaySeventeen()"></a>
+        <a href="#" id="square-button1" class="startshare" onmouseover="displayEighteen()"></a>
+        <a href="#" id="square-button1" class="stopshare" onmouseover="displayNineteen()"></a>
+        <a href="#" id="square-button1" class="stopshare" onmouseover="displayTwenty()"></a>
+
+        <a href="#" id="square-button1" class="jwlibplaypause" onmouseover="displayTwentyOne()"></a>
+        <a href="#" id="square-button1" class="jwlibplaypause" onmouseover="displayTwentyTwo()"></a>
+        <a href="#" id="square-button1" class="zoommuteall" onmouseover="displayTwentyThree()"></a>
+        <a href="#" id="square-button1" class="zoommuteall" onmouseover="displayTwentyFour()"></a>
+        </div>
+        </div>
+        <div id="xkeys-desc-txt">
+            Hover Over a Button To See Its Description
+        </div>
+    </p1>
+<script>
+
+    </script>
+
+</div>
+
+<script>
+    document.getElementById("enlarge").addEventListener("click", enlarge)
+    document.getElementById("reset").addEventListener("click", reset)
+
+
+
+    function enlarge(){
+        document.getElementById("everything").style.fontSize = "25px";
+        document.getElementById("enlarge").style.display = "none";
+        document.getElementById("reset").style.display = "flex";
+    }
+
+    function reset(){
+        document.getElementById("everything").style.fontSize = "16px";
+        document.getElementById("enlarge").style.display = "flex";
+        document.getElementById("reset").style.display = "none";
+    }
+
+
+// Scroll Functions
+    document.getElementById("videohref").addEventListener("click", videoScroll)
+    document.getElementById("audiohref").addEventListener("click", audioScroll)
+    document.getElementById("zoomhref").addEventListener("click", zoomScroll)
+    document.getElementById("xkeyshref").addEventListener("click", xkeysScroll)
+
+
+
+
+    function audioScroll(){
+        document.getElementById("audioScroll").scrollIntoView();
+}
+    function videoScroll(){
+        document.getElementById("videoScroll").scrollIntoView();
+}
+    function zoomScroll(){
+        document.getElementById("zoomScroll").scrollIntoView();
+}
+    function xkeysScroll(){
+        document.getElementById("xkeysScroll").scrollIntoView();
+}
+
+
+
+
+
+
+    function displayFive(){
+        document.getElementById("xkeys-desc-txt").innerHTML="START ALL APPS:<br>Starts JW Library, OnlyM and Zoom. Signs in to Zoom and runs a Zoom Screen Share Test"
+    }
+    function displayEight(){
+        document.getElementById("xkeys-desc-txt").innerHTML="HELP:<br>Opens an interactive Help document"
+    }
+    function displayOne(){
+        document.getElementById("xkeys-desc-txt").innerHTML="SHIFT then CLOSE ALL APPS:<br>Closes the Zoom/JW Library/OnlyM apps"
+    }
+    function displayFour(){
+        document.getElementById("xkeys-desc-txt").innerHTML="SHIFT:<br>Toggles between Blue and Red layers on X-Keys"
+    }
+    function displaySix(){
+        document.getElementById("xkeys-desc-txt").innerHTML="BACKGROUND MUSIC:<br>Shuffles Audio music from JW Library “Sing Out Joyfully” songs"
+    }
+    function displaySeven(){
+        document.getElementById("xkeys-desc-txt").innerHTML="ZOOM MIC & CAM TOGGLE:<br>Turns off Video, Mutes the stage device and Mutes all Participants"
+    }
+    function displayThree(){
+        document.getElementById("xkeys-desc-txt").innerHTML="SHIFT then RESTART:<br>Displays the AV Instructions on the screen ; RESTART: Restarts the computer"
+    }
+    function displayTwo(){
+        document.getElementById("xkeys-desc-txt").innerHTML="SHIFT then SIGN OUT:<br>Closes all apps/programs and signs the current user out"
+    }
+    function displayNine(){
+        document.getElementById("xkeys-desc-txt").innerHTML="DISPLAY ZOOM:<br>Moves the Zoom screen to the Left monitor"
+    }
+    function displayTen(){
+        document.getElementById("xkeys-desc-txt").innerHTML="DISPLAY JW LIB MEDIA:<br>Moves the JW Library screen to the front of the Left monitor and moves the Zoom screen to the Top monitor"
+    }
+    function displayEleven(){
+        document.getElementById("xkeys-desc-txt").innerHTML="START REMOTE ONLYM:<br>1) Moves/Resizes the OnlyM screen to the top two-thirds of the Left monitor<br>2) Moves/Resizes the Zoom screen to the bottom third of the Left monitor<br>3) Shares Screen on Zoom"
+    }
+    function displayTwelve(){
+        document.getElementById("xkeys-desc-txt").innerHTML="STOP REMOTE ONLYM:<br>Moves/Resizes the Zoom screen to the Left Monitor"
+    }
+    function displayThirteen(){
+        document.getElementById("xkeys-desc-txt").innerHTML="DISPLAY ZOOM:<br>Moves the Zoom screen to the Left monitor"
+    }
+    function displayFourteen(){
+        document.getElementById("xkeys-desc-txt").innerHTML="DISPLAY JW LIB MEDIA:<br>Moves the JW Library screen to the front of the Left monitor and moves the Zoom screen to the Top monitor"
+    }
+    function displayFifteen(){
+        document.getElementById("xkeys-desc-txt").innerHTML="START REMOTE JWLIB:<br>1) Moves/Resizes the JW Library screen to the top two-thirds of the Left monitor<br>2) Moves/Resizes the Zoom screen to the bottom third of the Left monitor<br>3) Shares Screen on Zoom"
+    }
+    function displaySixteen(){
+        document.getElementById("xkeys-desc-txt").innerHTML="STOP REMOTE JWLIB:<br>Moves/Resizes the Zoom screen to the Left Monitor"
+    }
+    function displaySeventeen(){
+        document.getElementById("xkeys-desc-txt").innerHTML="START SHARE:<br>Starts Screen Share for Zoom"
+    }
+    function displayEighteen(){
+        document.getElementById("xkeys-desc-txt").innerHTML="START SHARE:<br>Starts Screen Share for Zoom"
+    }
+    function displayNineteen(){
+        document.getElementById("xkeys-desc-txt").innerHTML="STOP SHARE:<br>Stops Screen Share for Zoom"
+    }
+    function displayTwenty(){
+        document.getElementById("xkeys-desc-txt").innerHTML="STOP SHARE:<br>Stops Screen Share for Zoom"
+    }
+    function displayTwentyOne(){
+        document.getElementById("xkeys-desc-txt").innerHTML="JW LIBRARY PLAY/PAUSE:<br>Toggles the Play/Pause button in JW Library"
+    }
+    function displayTwentyTwo(){
+        document.getElementById("xkeys-desc-txt").innerHTML="JW LIBRARY PLAY/PAUSE:<br>Toggles the Play/Pause button in JW Library"
+    }
+    function displayTwentyThree(){
+        document.getElementById("xkeys-desc-txt").innerHTML="ZOOM MUTE ALL:<br>Mutes all Participants on Zoom"
+    }
+    function displayTwentyFour(){
+        document.getElementById("xkeys-desc-txt").innerHTML="ZOOM MUTE ALL:<br>Mutes all Participants on Zoom"
+    }
+</script>
+
+</body>
+</html>

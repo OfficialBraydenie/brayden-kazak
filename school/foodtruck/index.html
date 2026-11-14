@@ -1,0 +1,303 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--        Hello to whoever is reading this :)      -->
+
+<!--        While reading this code i have broken down what the code does in comments that look like this      -->
+<!--        Look for green text in brackets like these       -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Splash Screen Script -->
+
+    <script>
+    document.addEventListener('DOMContentLoaded', (e) => {
+        //document.getElementById("html").style.overflow = "hidden";
+        setTimeout(() => {document.getElementById("splash-bg").style.opacity = '0%';}, 500);
+        setTimeout(() => {document.getElementById("splash").style.opacity = '0%';}, 1500);
+        setTimeout(() => {document.getElementById("splash").style.display = 'none';}, 3500);
+        setTimeout(() => {document.getElementById("splash-bg").style.display = 'none'; document.getElementById("html").style.overflow = "visible";}, 3500);
+    });
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/png" href="/school/foodtruck/images/favicon.png">
+
+    <!-- My CSS/Style Sheet -->
+
+    <style>
+        @font-face {font-family: poppins-medium; src: url('/school/foodtruck/font/Poppins-Medium.ttf');}
+        html{
+            font-family: poppins-medium;
+            background-color: #191919;
+            color: #dddddd;
+        }
+        
+        #splash{
+            z-index: 3;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 1;
+            animation: scaleup 1s;
+            transition: all 2s;
+            overflow: hidden;
+        }
+        #splash-bg{
+            z-index: 4;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            transition: all 0.5s;
+            overflow: hidden;
+        }
+        ul {
+            z-index: 3;
+            position: fixed;
+            list-style-type: none;
+            margin: -8px;
+            padding: 0px;
+            width: 150px;
+            background-color: #191919;
+            height: 100%;
+            transform: translateX(-100%);
+            transition: all 1s;
+            border-right: 5px #dddddd outset;
+        }
+        li a {
+            display: block;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: x-large;
+        }
+        li a.active {
+            background-color: #009aad;
+            color: black;
+        }
+        li a:hover:not(.active) {
+            background-color: #dddddd;
+            color: black;
+        }
+        #click-listener{
+            z-index: 2;
+            display: none;
+            position:fixed;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            width: 100%;
+            height: 100%;
+        }
+        .menu:hover{
+            font-size: 50px;
+        }
+        .menu{
+            z-index: 1;
+            font-size: 40px;
+            position: fixed;
+            transition: all 1s;
+        }
+        .heading{
+            text-align: center;
+            padding-top: 30px;
+            font-size: 8vmin;
+        }
+        .front-page-1{
+            display: flex;
+            padding: 40px;
+            float: left;
+            flex-direction: row;
+        }
+        .front-page-1 p {
+            font-size: 3vmin;
+        }
+        .front-page-img1{
+            margin-right: 50px;
+            width: auto;
+            height: 400px;
+            display: flex;
+            border-radius: 40px;
+            animation: fadein 2s forwards;
+        }
+        .front-page-2{
+            display: flex;
+            padding: 40px;
+            float: left;
+            flex-direction: row-reverse;
+        }
+        .front-page-2 p {
+            font-size: 3vmin;
+        }
+        .front-page-img2{
+            margin-left: 50px;
+            width: auto;
+            height: 400px;
+            display: flex;
+            border-radius: 40px;
+            animation: fadein 2s forwards;
+        }
+        @keyframes fadein {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @media (max-width: 1300px) {
+            .front-page-1 p {
+                font-size: 2vmin;
+            }
+            .front-page-2 p {
+                font-size: 2vmin;
+            }
+        }
+        @media (max-width: 900px) {
+            ul {
+                width: 100%;
+                transform: translateX(-100%);
+                text-align: center;
+            }
+            .front-page-1 {
+                flex-direction: column;
+                align-items: center;
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            .front-page-1 p {
+                font-size: 6vmin;
+            }
+            .front-page-img1 {
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            .front-page-2 {
+                flex-direction: column;
+                align-items: center;
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            .front-page-img2 {
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            .front-page-2 p {
+                font-size: 6vmin;
+            }
+        }
+    </style>
+</head>
+<body id="html">
+
+<!-- Navigation System -->
+
+    <!--<img id="splash-bg" src="/school/foodtruck/images/splash-bg.png" alt="Splash Screen">
+    <img id="splash" src="/school/foodtruck/images/splash.png" alt="Splash Screen">-->
+    <ul id="nav-bar">
+        <li><a class="active" id="active" href="#">Home</a></li>
+        <li><a href="/school/foodtruck/menu.html">Menu</a></li>
+        <li><a href="/school/foodtruck/contact.html">Find Us</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+
+    <div id="click-listener"></div>
+    <div class="menu" id="menu">☰</div>
+    <script>
+        document.getElementById("menu").addEventListener("click", functionStupid);
+            function functionStupid(){
+                document.getElementById("nav-bar").style.transform = 'translateX(0%)';
+                document.getElementById("click-listener").style.display = 'flex';
+            };
+        document.getElementById("active").addEventListener("click", functionDum);
+        document.getElementById("click-listener").addEventListener("click", functionDum);
+            function functionDum(){
+                document.getElementById("nav-bar").style.transform = 'translateX(-100%)';
+                document.getElementById("click-listener").style.display = 'none';
+            };
+        </script>
+
+<!-- Page Code -->
+    <div class="heading">Cuisine Machine</div>
+
+
+    <div class="front-page-1">
+    <img class="front-page-img1" src="/school/foodtruck/images/front-page-img1.png">
+        <p>
+            Welcome to the official website of Cuisine Machine, a food truck located in Cleveland OH that specializes in serving delicious burritos!<br><br>
+            So, take a look around our site, learn more about us, and join us for a bite at our food truck soon!
+        </p>
+    </div>
+    <div class="front-page-2">
+        <img class="front-page-img2" src="/school/foodtruck/images/front-page-img2.jpg">
+        <p>
+            We are excited to have you here and to introduce you to the mouth-watering flavors and ingredients that make our burritos a hit among foodies in the Cleveland area.<br><br>
+            Whether you're a fan of classic Mexican cuisine or you're looking for something new and unique, we guarantee that our menu will exceed your expectations.<br><br>
+        </p>
+    </div>
+</body>
+
+    <!--<a>PAGE IN PROGRESS <br><br>PRESS CTRL+U TO VIEW MY PAGE'S CODE IF YOUR CURIOUS</a>-->
+
+
+</html>
