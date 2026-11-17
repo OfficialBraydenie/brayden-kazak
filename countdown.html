@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
 </head>
 <style>
-    body {}
-    #Header {display: flex; justify-content: center; align-items: flex-end; margin: -8px; margin-bottom: 0px; border-bottom: 2px solid black;}
+    @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+    .sono-bruh {font-family: "Sono", monospace; font-optical-sizing: auto; font-weight: <weight>; font-style: normal; font-variation-settings: "MONO" 1;
+}
+    body {background-color: #FFFFF0;}
+    #Header {background-color: white; display: flex; justify-content: center; align-items: flex-end; margin: -8px; margin-bottom: 0px; border-bottom: 2px solid black; font-family: "Sofia Sans Condensed"; font-size: 1rem;}
     #HeaderText {padding: .7em;}
-    #MainContainer {background-color: green; height: 30vh; display: flex; margin-left: -8px; margin-right: -8px; }
-    #TimekeeperBox {background-color:#2854AB ;border: 1px solid black; height: fit-content; margin: 1em; margin-top: 2em;}
+    #MainContainer {background-image: url(https://i.redd.it/7vvdyi4xmljd1.png); height: 30vh; background-size: cover; background-position: center; display: flex; margin-left: -8px; margin-right: -8px; justify-content: center; align-items: center;}
+    #TimekeeperBox {background-color:#2854AB ; height: fit-content;}
     #FlipperBox { display: flex;}
-    #Flipper {background-color: rgb(165, 165, 165); height: 12vh; border: 1px solid black; width: 14vw; margin-top: -1em; margin-left: .3em; margin-bottom: .3em; display: flex; justify-content: center; align-items: center;}
-    #Flip2 {margin: auto; font-size: 2.75rem;}
-    #Flip3 {margin: auto; font-size: 2.75rem;}
-    #TimerWordsContainer {background-color: #e20707; display: flex; justify-content: center;}
+    #Flipper {background-image: url("recources/images/FlipperText.png"); background-size: 12vh; height: 12vh; border-radius: .3em; width: 14vw; margin-top: -1em; margin-left: .3em; margin-bottom: .3em; display: flex; justify-content: center; align-items: center;}
+    .FlipperContent {margin: auto; font-size: 3rem; color: #04253C; font-family: "Sofia Sans Condensed"; font-weight: 700;}
+    #TimerWordsContainer {background-color: #2E67CE; display: flex; justify-content: center;}
     #TimerWords {font-size: .6rem; color: white; margin: .7em; display: flex;}
-    #demo {color: white; font-size: 1.75rem; margin: auto; margin-left: .3em; margin-right: .3em;}
+    #FlipperBoxText {color: white; font-size: 2rem; margin: auto; margin-left: .3em; margin-right: .3em; font-family: "Sofia Sans Condensed"; font-weight: 700;}
 </style>
 <body>
     <div id="Header">
@@ -30,10 +34,10 @@
         <div id="TimekeeperBox">
             
             <div id="FlipperBox">
-                <div id="Flipper"></div>
-                <div id="Flipper">  <p id="Flip2">X</p>  </div>
-                <div id="Flipper">  <p id="Flip3">X</p>  </div>
-                <p id="demo">Days</p>
+                <div id="Flipper">  <p class="FlipperContent">♡</p>  </div>
+                <div id="Flipper">  <p id="Flip2" class="FlipperContent">🗘</p>  </div>
+                <div id="Flipper">  <p id="Flip3" class="FlipperContent">🗘</p>  </div>
+                <p id="FlipperBoxText">Days</p>
             </div>
 
             <div id="TimerWordsContainer">
@@ -65,12 +69,19 @@ var x = setInterval(function() {
 
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   //var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
   const [a, b] = days.toString().split('').map(Number);
+
+  if (days<10) {
+  
+  document.getElementById("Flip2").innerHTML = 0;
+  document.getElementById("Flip3").innerHTML = a;
+
+  }else {
+
 
   document.getElementById("Flip2").innerHTML = a;
   document.getElementById("Flip3").innerHTML = b;
-
+  };
 
  // document.getElementById("demo").innerHTML = days + " Days";// + "d " + hours + "h ";
 
