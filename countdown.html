@@ -16,17 +16,134 @@
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
-    .sono-bruh {font-family: "Sono", monospace; font-optical-sizing: auto; font-weight: <weight>; font-style: normal; font-variation-settings: "MONO" 1;}
-    #Header {background-color: white; display: flex; justify-content: center; align-items: flex-end; margin: -8px; margin-bottom: 0px; border-bottom: 2px solid black; font-family: "Sofia Sans Condensed"; font-size: 1.1rem;}
-    #HeaderText {padding: .7em;}
-    #MainContainer {background-image: url(https://i.redd.it/7vvdyi4xmljd1.png); height: 30vh; background-size: cover; background-position: center; display: flex; margin-left: -8px; margin-right: -8px; justify-content: center; align-items: center;}
-    #TimekeeperBox {background-color:#2854AB ; height: fit-content;}
-    #FlipperBox { display: flex;}
-    #Flipper {background-image: url("recources/images/FlipperText.png"); background-size: 12vh; height: 12vh; border-radius: .3em; width: 14vw; margin-top: -1em; margin-left: .3em; margin-bottom: .3em; display: flex; justify-content: center; align-items: center; box-shadow: 2px 2px 2px;}
-    .FlipperContent {margin: auto; font-size: 4rem; color: #04253C; font-family: "Sofia Sans Condensed"; font-weight: 700;}
-    #TimerWordsContainer {background-color: #2E67CE; display: flex; justify-content: center;}
-    #TimerWords {font-size: .6rem; color: white; margin: .7em; display: flex;}
-    #FlipperBoxText {color: white; font-size: 2rem; margin: auto; margin-left: .3em; margin-right: .3em; font-family: "Sofia Sans Condensed"; font-weight: 700;}
+
+    .sono-bruh {
+        font-family: "Sono", monospace;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        font-variation-settings: "MONO" 1;
+    }
+
+    #Header {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin: -8px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border-bottom: 2px solid black;
+        font-family: "Sofia Sans Condensed";
+        font-size: 1.1rem;
+    }
+
+    #HeaderText {
+        padding: .7em;
+    }
+
+    #MainContainer {
+        background-image: url(https://i.redd.it/7vvdyi4xmljd1.png);
+        height: 30vh;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        margin-left: -8px;
+        margin-right: -8px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #TimekeeperBox {
+        background-color: #2854AB;
+        height: fit-content;
+    }
+
+    #FlipperBox {
+        display: flex;
+    }
+
+    #Flipper {
+        background-image: url("recources/images/FlipperText.png");
+        background-size: 12vh;
+        height: 12vh;
+        border-radius: .3em;
+        width: 14vw;
+        margin-top: -1em;
+        margin-left: .3em;
+        margin-bottom: .3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 2px 2px;
+    }
+
+    .FlipperContent {
+        margin: auto;
+        font-size: 4rem;
+        color: #04253C;
+        font-family: "Sofia Sans Condensed";
+        font-weight: 700;
+    }
+
+    #TimerWordsContainer {
+        background-color: #2E67CE;
+        display: flex;
+        justify-content: center;
+    }
+
+    #TimerWords {
+        font-size: .6rem;
+        color: white;
+        margin: .7em;
+        display: flex;
+    }
+
+    #FlipperBoxText {
+        color: white;
+        font-size: 2rem;
+        margin: auto;
+        margin-left: .3em;
+        margin-right: .3em;
+        font-family: "Sofia Sans Condensed";
+        font-weight: 700;
+    }
+
+    #ContentSelector {
+        display: flex;
+        margin-left: -8px;
+        margin-right: -8px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .SelectorOptions {
+        border-bottom: solid 4px rgb(204, 204, 204);
+        padding: .6em;
+        white-space: nowrap;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    #Opt1 {
+        display: flex;
+    }
+
+    #Opt2 {
+        display: none;
+    }
+
+    #Opt3 {
+        display: none;
+    }
+
+    #Opt4 {
+        display: none;
+    }
+
 </style>
 <body>
     <div id="Header">
@@ -40,8 +157,8 @@
             
             <div id="FlipperBox">
                 <div id="Flipper">  <p class="FlipperContent">♡</p>  </div>
-                <div id="Flipper">  <p id="Flip2" class="FlipperContent">🗘</p>  </div>
-                <div id="Flipper">  <p id="Flip3" class="FlipperContent">🗘</p>  </div>
+                <div id="Flipper">  <p id="Flip2" class="FlipperContent">~</p>  </div>
+                <div id="Flipper">  <p id="Flip3" class="FlipperContent">~</p>  </div>
                 <p id="FlipperBoxText">Days</p>
             </div>
 
@@ -53,11 +170,35 @@
         </div>
     </div>
     <div id="ContentSelector">
-        <div id="SelOpt1">My Reservation</div>
-        <div id="SelOpt2">Activites</div>
-        <div id="SelOpt3">Guest Services</div>
+        <div id="SelOpt1" class="SelectorOptions">My Reservation</div>
+        <div id="SelOpt2" class="SelectorOptions">Activites</div>
+        <div id="SelOpt3" class="SelectorOptions">Guest Services</div>
+        <div id="SelOpt4" class="SelectorOptions">Something Else</div>
+    </div>
+
+    <div id="Opt1">
+
+        <div>
+        <h3>The Lodge at Banner Elk</h3>
+        <p>615 Tynecastle Hwy</p>
+        <p>Nov 26,2026 - Nov 29,2026</p>
+        </div>
 
     </div>
+
+    <div id="Opt2">
+
+        <div>
+        <h3>Erwins View Trail</h3>
+        <p>With Other Kazaks</p>
+        <h3>Stonewalls Restaurant</h3>
+        <p>344 Shawneehaw Ave S, Banner Elk, NC 28604</p>
+        </div>
+
+    </div>
+    <div id="Opt3">sdfgsdfgsdfg</div>
+    <div id="Opt4">yretyerty</div>
+
 </body>
 </html>
 
@@ -102,4 +243,46 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = `I owe you a big hug if you see this ;)`;
   }
 }, 1000);
+</script>
+
+<script>
+    document.getElementById("SelOpt1").style = "border-bottom: solid 4px #2854AB;"
+function doReset() {
+    document.getElementById("SelOpt1").style = "border-bottom: solid 4px rgb(204, 204, 204);"
+    document.getElementById("SelOpt2").style = "border-bottom: solid 4px rgb(204, 204, 204);"
+    document.getElementById("SelOpt3").style = "border-bottom: solid 4px rgb(204, 204, 204);"
+    document.getElementById("SelOpt4").style = "border-bottom: solid 4px rgb(204, 204, 204);"
+    document.getElementById("Opt1").style = "display: none;"
+    document.getElementById("Opt2").style = "display: none;"
+    document.getElementById("Opt3").style = "display: none;"
+    document.getElementById("Opt4").style = "display: none;"
+}
+
+
+document.getElementById("SelOpt1").addEventListener("click", () => {
+    doReset();
+    document.getElementById("SelOpt1").style = "border-bottom: solid 4px #2854AB;"
+    document.getElementById("Opt1").style = "display: flex;"
+  });
+
+document.getElementById("SelOpt2").addEventListener("click", () => {
+    doReset();
+    document.getElementById("SelOpt2").style = "border-bottom: solid 4px #2854AB;"
+    document.getElementById("Opt2").style = "display: flex;"
+  });
+
+document.getElementById("SelOpt3").addEventListener("click", () => {
+    doReset();
+    document.getElementById("SelOpt3").style = "border-bottom: solid 4px #2854AB;"
+    document.getElementById("Opt3").style = "display: flex;"
+  });
+
+document.getElementById("SelOpt4").addEventListener("click", () => {
+    doReset();
+    document.getElementById("SelOpt4").style = "border-bottom: solid 4px #2854AB;"
+    document.getElementById("Opt4").style = "display: flex;"
+  });
+
+
+
 </script>
